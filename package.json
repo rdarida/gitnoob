@@ -1,6 +1,6 @@
 {
   "name": "gitnoob",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Git for a Noob",
   "main": "dist/index.js",
   "bin": {
