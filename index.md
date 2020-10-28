@@ -27,10 +27,12 @@ A quick look at the top-level files and directories.
 
 5. **`commitlint.config.js`**: This is a configuration file for [commitlint](https://commitlint.js.org/).
 
-6. **`LICENSE`**: This template is licensed under the MIT license.
+6. **`index.md`**: TBD
 
-7. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project. See more about the manifest file [here](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
+7. **`LICENSE`**: This template is licensed under the MIT license.
 
-8. **`package-lock.json`**: TBD
+8. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project. See more about the manifest file [here](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
 
-9. **`README.md`**: A text file containing useful reference information about your project.
+9. **`package-lock.json`**: TBD
+
+10. **`README.md`**: A text file containing useful reference information about your project.
