@@ -1,0 +1,11 @@
+.cache
+build
+dist
+docs
+.editorconfig
+.gitignore
+CHANGELOG.md
+LICENSE
+package.json
+package-lock.json
+README.md

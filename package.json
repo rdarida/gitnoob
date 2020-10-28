@@ -1,24 +1,40 @@
 {
-  "name": "node-template",
+  "name": "gitnoob",
   "version": "0.0.0",
-  "description": "Node Template",
+  "description": "Git for a Noob",
+  "main": "dist/index.js",
+  "bin": {
+    "gitnoob": "dist/cli.js"
+  },
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
+    "clean": "rimraf dist",
+    "pretty": "prettier --write \"**/*.{js,json}\"",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir dist",
+    "prerelease": "npm run build",
     "release": "standard-version",
-    "postrelease": "git push --follow-tags origin main",
-    "pretty": "echo \"base-scripts pretty\""
+    "postrelease": "git push --follow-tags origin master"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rdarida/node-template.git"
+    "url": "git+https://github.com/rdarida/gitnoob.git"
   },
   "author": "Róbert Darida",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "base-scripts": "0.0.38",
     "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
     "standard-version": "^9.0.0"
   },
   "husky": {
