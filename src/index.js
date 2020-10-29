@@ -15,7 +15,7 @@ const GitNoobCmd = {
  * @param {number} need The number of arguments are needed.
  */
 function checkArgv(argv, need, cmd) {
-  if (argv.length < need) {
+  if (argv.length !== need) {
     throw new Error(`The "${cmd}" command needs ${need} argument(s)!`);
   }
 }
@@ -66,8 +66,11 @@ function clone(argv, user, cwd) {
   const [name, repo] = argv;
 
   if (shell.which('git')) {
+    const link = `https://github.com/${name}/${repo}.git`;
+    console.log(`Clone: ${link}\n${argv.join(',')}`);
+
     shell.cd(cwd);
-    shell.exec(`git clone https://github.com/${name}/${repo}.git`);
+    shell.exec(`git clone ${link}`);
     set([user.name], user, resolve(cwd, repo));
   }
 }
