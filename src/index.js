@@ -46,7 +46,7 @@ function set(argv, users, cwd) {
 
   if (shell.which('git') && existsSync(resolve(cwd, '.git'))) {
     shell.cd(cwd);
-    shell.exec(`git config user.name ${name}`);
+    shell.exec(`git config --replace-all user.name ${name}`);
     shell.exec(`git config user.email ${users[name]}`);
   }
 }
