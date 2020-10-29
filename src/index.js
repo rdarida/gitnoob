@@ -63,11 +63,11 @@ function set(argv, user, cwd) {
  */
 function clone(argv, user, cwd) {
   checkArgv(argv, 2, 'clone');
-  const [user, repo] = argv;
+  const [name, repo] = argv;
 
   if (shell.which('git')) {
     shell.cd(cwd);
-    shell.exec(`git clone https://github.com/${user}/${repo}.git`);
+    shell.exec(`git clone https://github.com/${name}/${repo}.git`);
     set([user.name], user, resolve(cwd, repo));
   }
 }
