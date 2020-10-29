@@ -1,7 +1,7 @@
 {
   "name": "gitnoob",
   "version": "0.0.8",
-  "description": "Git for a Noob",
+  "description": "GitHub tool for a git noob",
   "main": "dist/index.js",
   "bin": {
     "gitnoob": "dist/cli.js",
@@ -26,6 +26,7 @@
   },
   "keywords": [
     "noob",
+    "github",
     "git",
     "tool"
   ],
