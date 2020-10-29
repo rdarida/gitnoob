@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/rdarida/gitnoob/compare/v0.0.3...v0.0.4) (2020-10-29)
+
+
+### Bug Fixes
+
+* add --replace-all argument to set function ([9a23211](https://github.com/rdarida/gitnoob/commit/9a23211ca65f9332d6990336f973dcb9a9a33565))
+
 ### [0.0.3](https://github.com/rdarida/gitnoob/compare/v0.0.2...v0.0.3) (2020-10-29)
 
 
