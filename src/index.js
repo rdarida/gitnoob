@@ -44,8 +44,7 @@ function set(argv, user, cwd) {
 
   if (!user.name) {
     throw new Error(`There isn't any user!`);
-  }
-  else if (user.name !== name) {
+  } else if (user.name !== name) {
     throw new Error(`There isn't "${name}" user!`);
   }
 
