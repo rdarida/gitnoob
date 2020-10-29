@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/rdarida/gitnoob/compare/v0.0.5...v0.0.6) (2020-10-29)
+
+
+### Bug Fixes
+
+* remove duplicated user variable from clone function ([11339b1](https://github.com/rdarida/gitnoob/commit/11339b1eb007f61d25938d277a44489bc186e979))
+* undefined name in set function ([4f12cc1](https://github.com/rdarida/gitnoob/commit/4f12cc16013f61a502eedf05c10a538cf2d5d140))
+
 ### [0.0.5](https://github.com/rdarida/gitnoob/compare/v0.0.4...v0.0.5) (2020-10-29)
 
 
