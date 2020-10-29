@@ -4,7 +4,8 @@
   "description": "Git for a Noob",
   "main": "dist/index.js",
   "bin": {
-    "gitnoob": "dist/cli.js"
+    "gitnoob": "dist/cli.js",
+    "ghit": "dist/cli.js"
   },
   "files": [
     "dist/**/*",

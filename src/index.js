@@ -5,7 +5,8 @@ const shell = require('shelljs');
 const GitNoobCmd = {
   ADD: 'add',
   SET: 'set',
-  LIST: 'list'
+  LIST: 'list',
+  CLONE: 'clone'
 };
 
 /**
@@ -22,45 +23,51 @@ function checkArgv(argv, need, cmd) {
 /**
  * Adds new user to users.
  * @param {string[]} argv
- * @param {*} users
+ * @param {*} user
  */
-function add(argv, users) {
+function add(argv, user) {
   checkArgv(argv, 2, 'add');
-  const [name, email] = argv;
-  users[name] = email;
+
+  user['name'] = argv[0];
+  user['email'] = argv[1];
 }
 
 /**
  * Sets user to current git repository.
  * @param {string[]} argv Command line arguments.
- * @param {*} users A json object contains name & email pairs
+ * @param {*} user A json object contains name & email pairs
  * @param {string} cwd Current working directory.
  */
-function set(argv, users, cwd) {
+function set(argv, user, cwd) {
   checkArgv(argv, 1, 'set');
   const [name] = argv;
 
-  if (users[name] == undefined) {
+  if (!user.name || user.name !== name) {
     throw new Error(`There isn't "${name}" user!`);
   }
 
   if (shell.which('git') && existsSync(resolve(cwd, '.git'))) {
     shell.cd(cwd);
-    shell.exec(`git config --replace-all user.name ${name}`);
-    shell.exec(`git config user.email ${users[name]}`);
+    shell.exec(`git config user.name "${user.name}"`);
+    shell.exec(`git config user.email "${user.email}"`);
   }
 }
 
 /**
- * Lists all saved users.
- * @param {*} users A json object contains name & email pairs
+ * Clones the given GitHub repository.
+ * @param {string[]} argv Contains "user/repo" string.
+ * @param {*} user
+ * @param {string} cwd Current working directory.
  */
-function list(users) {
-  console.log('List of users:');
+function clone(argv, user, cwd) {
+  checkArgv(argv, 1, 'clone');
 
-  for (const user in users) {
-    console.log('\t', user, users[user]);
+  if (shell.which('git')) {
+    shell.cd(cwd);
+    shell.exec(`git clone https://github.com/${argv[0]}.git`);
+    set([user.name], user, cwd);
   }
+
 }
 
 /**
@@ -74,15 +81,19 @@ function gitnoob(cwd, cmd, argv) {
 
   switch (cmd) {
     case GitNoobCmd.ADD:
-      add(argv, json.users);
+      add(argv, json);
       break;
 
     case GitNoobCmd.SET:
-      set(argv, json.users, cwd);
+      set(argv, json, cwd);
       break;
 
     case GitNoobCmd.LIST:
-      list(json.users);
+      console.log(JSON.stringify(json, null, 2));
+      break;
+
+    case GitNoobCmd.CLONE:
+      clone(argv, json, cwd);
       break;
 
     default:
