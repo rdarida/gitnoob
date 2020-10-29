@@ -1,4 +1,4 @@
-Git tool for a noob.
+GitHub tool for a noob.
 
 ## Usage
 TBD
