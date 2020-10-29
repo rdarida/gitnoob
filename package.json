@@ -7,7 +7,8 @@
     "gitnoob": "dist/cli.js"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "gitnoob.json"
   ],
   "scripts": {
     "clean": "rimraf dist",
@@ -29,7 +30,10 @@
   ],
   "author": "Róbert Darida",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "fs-extra": "^9.0.1",
+    "shelljs": "^0.8.4"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
