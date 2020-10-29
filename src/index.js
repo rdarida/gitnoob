@@ -67,7 +67,6 @@ function clone(argv, user, cwd) {
     shell.exec(`git clone https://github.com/${argv[0]}.git`);
     set([user.name], user, cwd);
   }
-
 }
 
 /**
