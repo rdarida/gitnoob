@@ -42,7 +42,10 @@ function set(argv, user, cwd) {
   checkArgv(argv, 1, 'set');
   const [name] = argv;
 
-  if (!user.name || user.name !== name) {
+  if (!user.name) {
+    throw new Error(`There isn't any user!`);
+  }
+  else if (user.name !== name) {
     throw new Error(`There isn't "${name}" user!`);
   }
 
@@ -60,12 +63,13 @@ function set(argv, user, cwd) {
  * @param {string} cwd Current working directory.
  */
 function clone(argv, user, cwd) {
-  checkArgv(argv, 1, 'clone');
+  checkArgv(argv, 2, 'clone');
+  const [user, repo] = argv;
 
   if (shell.which('git')) {
     shell.cd(cwd);
-    shell.exec(`git clone https://github.com/${argv[0]}.git`);
-    set([user.name], user, cwd);
+    shell.exec(`git clone https://github.com/${user}/${repo}.git`);
+    set([user.name], user, resolve(cwd, repo));
   }
 }
 
