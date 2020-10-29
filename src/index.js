@@ -3,9 +3,9 @@ const { readJsonSync, writeJSONSync, existsSync } = require('fs-extra');
 const shell = require('shelljs');
 
 const GitNoobCmd = {
-  ADD: 'add',
+  USER: 'user',
   SET: 'set',
-  LIST: 'list',
+  DUMP: 'dump',
   CLONE: 'clone'
 };
 
@@ -67,7 +67,6 @@ function clone(argv, user, cwd) {
 
   if (shell.which('git')) {
     const link = `https://github.com/${name}/${repo}.git`;
-    console.log(`Clone: ${link}\n${argv.join(',')}`);
 
     shell.cd(cwd);
     shell.exec(`git clone ${link}`);
@@ -85,7 +84,7 @@ function gitnoob(cwd, cmd, argv) {
   const json = readJsonSync(jsonPath);
 
   switch (cmd) {
-    case GitNoobCmd.ADD:
+    case GitNoobCmd.USER:
       add(argv, json);
       break;
 
@@ -93,7 +92,7 @@ function gitnoob(cwd, cmd, argv) {
       set(argv, json, cwd);
       break;
 
-    case GitNoobCmd.LIST:
+    case GitNoobCmd.DUMP:
       console.log(JSON.stringify(json, null, 2));
       break;
 

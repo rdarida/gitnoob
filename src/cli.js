@@ -10,7 +10,7 @@ const { gitnoob } = require('.');
 
     gitnoob(cwd, argv[0], argv.slice(1));
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 
   process.exit();
